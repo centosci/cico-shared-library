@@ -1,6 +1,6 @@
 #!groovy
 
-def call(Map config) {
+def call(Closure body) {
     def stages = [:]
     def fedora_containers = [
                     containerTemplate(name: 'jnlp',
