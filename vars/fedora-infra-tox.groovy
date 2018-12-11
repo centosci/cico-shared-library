@@ -10,7 +10,6 @@ def call(Map config) {
                                       workingDir: "/workdir")
     ]
     def active_fedoras = ["f28", "f29", "rawhide"]
-    def any_failed = false
 
     active_fedoras.each { fedora ->
         stages["tox-${fedora}"] = {
