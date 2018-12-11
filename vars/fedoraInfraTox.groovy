@@ -37,7 +37,7 @@ def call(Closure body) {
                 cloud: 'openshift',
                 containers: fedora_containers
     ){
-        node('mypod'){
+        node('fedora-tox'){
             ansiColor('xterm'){
                 stage ('checkout'){
                     checkout scm
