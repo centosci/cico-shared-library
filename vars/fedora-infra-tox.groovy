@@ -12,7 +12,7 @@ def call(Map config) {
     def active_fedoras = ["f28", "f29", "rawhide"]
     def any_failed = false
 
-    Constants.ACTIVE_FEDORAS.each { fedora ->
+    active_fedoras.each { fedora ->
         stages["tox-${fedora}"] = {
             stage("tox-${fedora}"){
                 container("${fedora}"){
