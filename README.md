@@ -8,7 +8,7 @@ Libraries`)
 
 ### Prerequisites
 This set of shared libraries is meant to work in conjunction with a set of
-[Openshift Images](centosci/images). These need to be built and available for
+[Openshift Images](https://github.com/centosci/images). These need to be built and available for
 pulling in all openshift namespaces.
 
 ## Usage
