@@ -25,7 +25,7 @@ def call(Closure body) {
         }
 
         fedora_containers.add(containerTemplate(name: "${fedora}",
-                                                image: "docker-registry.default.svc:5000/bstinson/python-tox:${fedora}",
+                                                image: "172.30.254.79:5000/bstinson/python-tox:${fedora}",
                                                 ttyEnabled: true,
                                                 alwaysPullImage: true,
                                                 command: "cat",
