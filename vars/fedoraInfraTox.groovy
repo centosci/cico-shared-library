@@ -4,7 +4,7 @@ def call(Closure body) {
     def stages = [:]
     def fedora_containers = [
                     containerTemplate(name: 'jnlp',
-                                      image: "docker-registry.default.svc:5000/bstinson/agent-python3-tox:latest",
+                                      image: "docker-registry.default.svc:5000/openshift/cico-workspace:latest",
                                       ttyEnabled: false,
                                       args: '${computer.jnlpmac} ${computer.name}',
                                       workingDir: "/workdir")
