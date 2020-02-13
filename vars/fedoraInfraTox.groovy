@@ -9,13 +9,14 @@ def call(Closure body) {
                                       args: '${computer.jnlpmac} ${computer.name}',
                                       workingDir: "/workdir")
     ]
-    def active_fedoras = ["f28", "f29", "rawhide"]
+    def active_fedoras = ["f30", "f31", "rawhide"]
 
     active_fedoras.each { fedora ->
         stages["tox-${fedora}"] = {
             stage("tox-${fedora}"){
                 container("${fedora}"){
                     sh "cp -al ./ ../${fedora}/"
+                    sh "sudo dnf install poetry "
                     dir( "../${fedora}" ){
                         sh "rm -rf .tox"
                         sh "tox"
@@ -25,7 +26,7 @@ def call(Closure body) {
         }
 
         fedora_containers.add(containerTemplate(name: "${fedora}",
-                                                image: "172.30.254.79:5000/bstinson/python-tox:${fedora}",
+                                                image: "quay.io/centosci/python-tox:${fedora}",
                                                 ttyEnabled: true,
                                                 alwaysPullImage: true,
                                                 command: "cat",
