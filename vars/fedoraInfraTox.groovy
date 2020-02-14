@@ -16,7 +16,7 @@ def call(Closure body) {
             stage("tox-${fedora}"){
                 container("${fedora}"){
                     sh "cp -al ./ ../${fedora}/"
-                    sh "sudo dnf install poetry "
+                    //sh "sudo dnf install poetry "
                     dir( "../${fedora}" ){
                         sh "rm -rf .tox"
                         sh "tox"
