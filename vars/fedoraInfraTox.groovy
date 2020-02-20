@@ -15,10 +15,12 @@ def call(Closure body) {
         stages["tox-${fedora}"] = {
             stage("tox-${fedora}"){
                 container("${fedora}"){
-                    sh "cp -al ./ ../${fedora}/"
-                    dir( "../${fedora}" ){
-                        sh "rm -rf .tox"
-                        sh "tox"
+                    withEnv(['HOME=/workdir/workspace']){
+                        sh "cp -al ./ ../${fedora}/"
+                        dir( "../${fedora}" ){
+                            sh "rm -rf .tox"
+                            sh "tox"
+                        }
                     }
                 }
             }
