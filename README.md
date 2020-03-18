@@ -15,7 +15,7 @@ pulling in all openshift namespaces.
 
 ### Examples
 ##### The Fedora-tox runner:
-This runner takes the project and runs tox for every released version of Fedora. 
+This runner takes the project and runs tox for every released version of Fedora.
 
 1. Install the shared library into your jenkins master (if you're on a CentOS
 CI master, this is already done for you)
@@ -27,7 +27,10 @@ repository, be sure to use Github API credentials
 5. Add a `.cico.pipeline` file in the root of your repository with the following contents:
    ```
    fedoraInfraTox {}
-   ``` 
+   ```
+
+**Note**:
+In vars/fedoraInfraTox.groovy, tag `fedora:latest` is used for `fedora:rawhide` image since the container file for python-tox [fedora:rawhide](quay.io/centosci/python-tox) lives under master branch of [centosci/images/python-tox](https://github.com/centosci/images/blob/master/python-tox/Dockerfile). Quay.io automatically tags master branch as master and latest.
 
 ## Contributing
 Pull-requests are welcome!
