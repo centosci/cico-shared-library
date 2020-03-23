@@ -9,7 +9,7 @@ def call(Closure body) {
                                       args: '${computer.jnlpmac} ${computer.name}',
                                       workingDir: "/workdir")
     ]
-    def active_fedoras = ["f30", "f31", "rawhide"]
+    def active_fedoras = ["f30", "f31", "f32", "latest"]
 
     active_fedoras.each { fedora ->
         stages["tox-${fedora}"] = {
