@@ -1,6 +1,6 @@
 #!groovy
 
-def call(Closure body) {
+def call(Closure body, ArrayList distros = ["f30", "f31", "f32", "latest"]) {
     def stages = [:]
     def fedora_containers = [
                     containerTemplate(name: 'jnlp',
@@ -9,9 +9,8 @@ def call(Closure body) {
                                       args: '${computer.jnlpmac} ${computer.name}',
                                       workingDir: "/workdir")
     ]
-    def active_fedoras = ["f30", "f31", "f32", "latest"]
 
-    active_fedoras.each { fedora ->
+    distros.each { fedora ->
         stages["tox-${fedora}"] = {
             stage("tox-${fedora}"){
                 container("${fedora}"){
