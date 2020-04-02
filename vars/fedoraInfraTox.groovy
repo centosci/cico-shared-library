@@ -1,6 +1,6 @@
 #!groovy
 
-def call(Closure body, ArrayList distros = ["f30", "f31", "f32", "latest"]) {
+def call(ArrayList distros = ["f30", "f31", "f32", "latest"], Closure body) {
     def stages = [:]
     def fedora_containers = [
                     containerTemplate(name: 'jnlp',
