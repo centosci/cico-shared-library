@@ -32,6 +32,11 @@ repository, be sure to use Github API credentials
 **Note**:
 In vars/fedoraInfraTox.groovy, tag `fedora:latest` is used for `fedora:rawhide` image since the container file for python-tox [fedora:rawhide](quay.io/centosci/python-tox) lives under master branch of [centosci/images/python-tox](https://github.com/centosci/images/blob/master/python-tox/Dockerfile). Quay.io automatically tags master branch as master and latest.
 
+If you want to test on a specific image, you can specify it as a argument to fedoraInfraTox like this:
+   ```
+   fedoraInfraTox(["epel7"]) {}
+   ```
+
 ## Contributing
 Pull-requests are welcome!
 
