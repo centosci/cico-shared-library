@@ -4,7 +4,7 @@ def call(ArrayList distros = ["f30", "f31", "f32", "latest"], Closure body) {
     def stages = [:]
     def fedora_containers = [
                     containerTemplate(name: 'jnlp',
-                                      image: "docker-registry.default.svc:5000/openshift/cico-workspace:latest",
+                                      image: "image-registry.openshift-image-registry.svc:5000/openshift/cico-workspace:latest",
                                       ttyEnabled: false,
                                       args: '${computer.jnlpmac} ${computer.name}',
                                       workingDir: "/workdir")
